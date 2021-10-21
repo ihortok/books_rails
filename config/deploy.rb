@@ -9,5 +9,5 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 
 set :keep_releases, 1
 
-set :branch, 'deploy'
+set :branch, 'main'
 set :passenger_restart_with_touch, true
