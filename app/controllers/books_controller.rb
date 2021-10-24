@@ -2,6 +2,7 @@
 
 # BooksController
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_book, only: %i[show edit update destroy]
 
   def index
