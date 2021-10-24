@@ -10,12 +10,36 @@ unless user.persisted?
   p 'user test@test.com - created'
 end
 
-authors = ['Jules Verne', 'Jack London', 'Dan Brown']
+books = [
+  {
+    title: 'Un capitaine de quinze ans',
+    author: 'Jules Verne'
+  },
+  {
+    title: 'White Fang',
+    author: 'Jack London'
+  },
+  {
+    title: 'Angels & Demons',
+    author: 'Dan Brown'
+  }
+]
 
-authors.each do |author_name|
-  next if Author.exists? name: author_name
+books.each do |book|
+  next if Author.exists?(name: book[:author]) && Book.exists?(title: book[:title])
 
-  Author.create(name: author_name, user: user)
+  author = Author.find_or_initialize_by(name: book[:author])
 
-  p "author #{author_name} - created"
+  unless author.persisted?
+    author.user = user
+    author.save!
+
+    p "author #{book[:author]} - created"
+  end
+
+  next if Book.exists? title: book[:title]
+
+  Book.create!(title: book[:title], author: author, user: user)
+
+  p "book #{book[:title]} - created"
 end
