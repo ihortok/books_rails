@@ -4,6 +4,7 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_author, only: %i[show edit update destroy]
+  before_action :authorize_access, only: %i[edit update destroy]
 
   def index
     @authors = Author.all
@@ -45,6 +46,10 @@ class AuthorsController < ApplicationController
 
   def set_author
     @author = Author.find(params[:id])
+  end
+
+  def authorize_access
+    authorize @author, :edit?
   end
 
   def author_params

@@ -19,6 +19,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class='container'>
+      <%= render 'layouts/partials/flashes' %>
+      <%= yield %>
+    </div>  
   </body>
 </html>
