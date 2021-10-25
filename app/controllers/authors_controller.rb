@@ -7,7 +7,7 @@ class AuthorsController < ApplicationController
   before_action :authorize_access, only: %i[edit update destroy]
 
   def index
-    @authors = Author.all
+    @pagy, @authors = pagy(Author.all)
   end
 
   def show; end
