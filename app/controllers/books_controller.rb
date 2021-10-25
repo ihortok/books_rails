@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   before_action :authorize_access, only: %i[edit update destroy]
 
   def index
-    @books = Book.all
+    @pagy, @books = pagy(Book.all)
   end
 
   def show; end
