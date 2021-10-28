@@ -1,3 +1,9 @@
+<% if @book.image.attached? %>
+  <p>
+    <%= image_tag @book.image %>
+  </p>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -15,7 +21,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @book.author_id %>
+  <%= @book.author.name %>
 </p>
 
 <p>
