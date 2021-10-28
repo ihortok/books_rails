@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# Author
 class Author < ApplicationRecord
+  has_one_attached :image
+
   belongs_to :user
 end
