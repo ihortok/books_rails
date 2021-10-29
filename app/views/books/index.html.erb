@@ -2,16 +2,34 @@
 
 <div class="row">
   <% @books.each do |book| %>
-    <div class="col-sm-6 col-lg-4 col-xl-3">
+    <div class="col-6">
       <div class="card mb-4">
-        <div class="card-body">
-          <h5 class="card-title"><%= book.title %></h5>
-          <p class="card-text"><%= book.description %></p>
-          <%= link_to 'Show', book, class: 'btn btn-primary' %>
-          <% if policy(book).edit? %>
-            <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning' %>
-            <%= link_to 'Destroy', book, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <div class="book-cover">
+              <% if book.image.attached? %>
+                <span class="book-cover-img">
+                  <%= image_tag book.image %>
+                </span>
+              <% else %>
+                <span class="bg-secondary book-cover-plug">
+                  <%= book.title %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-8    ">
+            <div class="card-body">
+              <h5 class="card-title"><%= book.title %></h5>
+              <small><%= book.author.name %></small>
+              <p class="card-text"><%= book.description %></p>
+              <%= link_to 'Show', book, class: 'btn btn-primary' %>
+              <% if policy(book).edit? %>
+                <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning' %>
+                <%= link_to 'Destroy', book, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
