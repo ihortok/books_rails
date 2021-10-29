@@ -2,14 +2,14 @@
 
 <div class="row">
   <% @books.each do |book| %>
-    <div class="col-6">
+    <div class="col-6 col-xl-4">
       <div class="card mb-4">
         <div class="row g-0">
           <div class="col-md-4">
             <div class="book-cover">
               <% if book.image.attached? %>
-                <span class="book-cover-img">
-                  <%= image_tag book.image %>
+                <span class="book-cover-img"
+                      style="background-image: url(<%= rails_blob_url(book.image) %>)">
                 </span>
               <% else %>
                 <span class="bg-secondary book-cover-plug">
@@ -18,7 +18,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-md-8    ">
+          <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title"><%= book.title %></h5>
               <small><%= book.author.name %></small>
