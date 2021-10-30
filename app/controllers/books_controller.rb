@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-# BooksController
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_book, only: %i[show edit update destroy]
   before_action :authorize_access, only: %i[edit update destroy]
 
   def index
-    @pagy, @books = pagy(Book.all)
+    @pagy, @books = pagy(Book.all, items: 24)
   end
 
   def show; end
@@ -19,7 +18,7 @@ class BooksController < ApplicationController
   def edit; end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
@@ -53,6 +52,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :original_title, :description, :author_id, :goodreads_url)
+    params.require(:book).permit(:title, :original_title, :description, :author_id, :goodreads_url, :image)
   end
 end
