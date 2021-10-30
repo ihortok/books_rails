@@ -8,4 +8,5 @@ class Author < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+  validates :image, size: { less_than: 250.kilobytes, message: 'is not given between size' }
 end

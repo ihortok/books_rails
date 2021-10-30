@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# AuthorsController
 class AuthorsController < ApplicationController
   before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_author, only: %i[show edit update destroy]
@@ -19,7 +18,7 @@ class AuthorsController < ApplicationController
   def edit; end
 
   def create
-    @author = Author.new(author_params)
+    @author = current_user.authors.build(author_params)
 
     if @author.save
       redirect_to @author, notice: 'Author was successfully created.'

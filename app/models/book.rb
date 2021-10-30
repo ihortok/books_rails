@@ -9,4 +9,5 @@ class Book < ApplicationRecord
   belongs_to :author
 
   validates :title, presence: true
+  validates :image, size: { less_than: 250.kilobytes, message: 'is not given between size' }
 end

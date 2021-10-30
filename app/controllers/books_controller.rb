@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# BooksController
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_book, only: %i[show edit update destroy]
@@ -19,7 +18,7 @@ class BooksController < ApplicationController
   def edit; end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
