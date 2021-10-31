@@ -2,3 +2,12 @@ en:
   books:
     index:
       title: Books
+  header:
+    nav:
+      title: Menu
+      authors: Authors
+      books: Books
+      log_in: Log in
+      sign_up: Sign up
+      sign_out: Sign out
+      edit_profile: Edit profile

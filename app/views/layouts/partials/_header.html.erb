@@ -8,31 +8,31 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><%= t('header.nav.title') %></h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <%= link_to 'Books', books_path, class: 'nav-link' %>
+            <%= link_to t('header.nav.books'), books_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Authors', authors_path, class: 'nav-link' %>
+            <%= link_to t('header.nav.authors'), authors_path, class: 'nav-link' %>
           </li>
           <hr>
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
+              <%= link_to t('header.nav.edit_profile'), edit_user_registration_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'nav-link' %>
+              <%= link_to t('header.nav.sign_out'), destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'Log in', new_user_session_path, class: 'nav-link' %>
+              <%= link_to t('header.nav.log_in'), new_user_session_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              <%= link_to t('header.nav.sign_up'), new_user_registration_path, class: 'nav-link' %>
             </li>
           <% end %>
         </ul>

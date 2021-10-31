@@ -2,3 +2,12 @@ uk:
   books:
     index:
       title: Книги
+  header:
+    nav:
+      title: Меню
+      authors: Автори
+      books: Книги
+      log_in: Увійти
+      sign_up: Зареєструватися
+      sign_out: Вийти
+      edit_profile: Редагувати обліковий запис
