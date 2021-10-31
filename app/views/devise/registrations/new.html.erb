@@ -31,7 +31,7 @@
 
         <div class="field">
           <%= f.label :locale, class: 'form-label' %>
-          <%= f.select :locale, User.locales.to_a, { include_blank: false }, class: 'form-select' %>
+          <%= f.select :locale, User.locales.keys.to_a, { include_blank: false }, class: 'form-select' %>
         </div>
 
         <div class="actions">
