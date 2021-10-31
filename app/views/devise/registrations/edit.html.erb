@@ -11,6 +11,11 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
 
+        <div class="field">
+          <%= f.label :nickname, class: 'form-label' %>
+          <%= f.text_field :nickname, autocomplete: 'nickname', class: 'form-control' %>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
@@ -32,6 +37,11 @@
           <%= f.label :current_password, class: 'form-label' %>
           <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
           <span class="form-text"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></span>
+        </div>
+
+        <div class="field">
+          <%= f.label :locale, class: 'form-label' %>
+          <%= f.select :locale, User.locales.to_a, { include_blank: false }, class: 'form-select' %>
         </div>
 
         <div class="actions">
