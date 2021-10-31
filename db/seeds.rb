@@ -3,8 +3,10 @@
 user = User.find_or_initialize_by(email: 'test@test.com')
 
 unless user.persisted?
+  user.nickname = 'test'
   user.password = '123456abc@'
   user.password_confirmation = '123456abc@'
+  user.locale = 'uk'
   user.save!
 
   p 'user test@test.com - created'
