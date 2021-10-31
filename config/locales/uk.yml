@@ -1,0 +1,52 @@
+uk:
+  back: Назад
+  are_you_sure: Ви впевнені?
+  actions:
+    show: Переглянути
+    edit: Редагувати
+    destroy: Видалити
+    add_record:
+      author: Додати автора
+      book: Додати книгу
+    edit_record:
+      author: Редагувати автора
+      book: Редагувати книгу
+  authors:
+    index:
+      title: Автори
+    new:
+      title: Додати автора
+    edit:
+      title: Редагувати автора
+  books:
+    index:
+      title: Книги
+    new:
+      title: Додати книгу
+    edit:
+      title: Редагувати книгу
+  header:
+    nav:
+      title: Меню
+      authors: Автори
+      books: Книги
+      log_in: Увійти
+      sign_up: Зареєструватися
+      sign_out: Вийти
+      edit_profile: Редагувати обліковий запис
+  activerecord:
+    attributes:
+      author:
+        name: Імя
+        original_name: Оригінальне ім'я
+      book:
+        title: Назва
+        original_title: Оригінальна назва
+        description: Опис
+        author_id: Автор
+        goodreads_url: Посилання на Goodreads
+        image: Зображення
+  helpers:
+    submit:
+      create: Додати
+      update: Оновити

@@ -1,5 +1,6 @@
-<h1>New Author</h1>
+<%= link_to t('back'), authors_path %>
+
+<h1><%= t('.title') %></h1>
 
 <%= render 'form', author: @author %>
 
-<%= link_to 'Back', authors_path %>

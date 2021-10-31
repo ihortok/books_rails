@@ -38,6 +38,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # config.i18n.fallbacks = true
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
