@@ -10,7 +10,7 @@
           <%= link_to t('actions.show'), author, class: 'btn btn-primary' %>
           <% if policy(author).edit? %>
             <%= link_to t('actions.edit'), edit_author_path(author), class: 'btn btn-warning' %>
-            <%= link_to t('actions.destroy'), author, class: 'btn btn-danger', method: :delete, data: { confirm: t('confirm') } %>
+            <%= link_to t('actions.destroy'), author, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
           <% end %>
         </div>
       </div>
