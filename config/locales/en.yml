@@ -1,4 +1,16 @@
 en:
+  back: Back
+  confirm: Are you sure?
+  actions:
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    add_record:
+      author: New Author
+      book: New Book
+    edit_record:
+      author: Edit Author
+      book: Edit Book
   authors:
     index:
       title: Authors

@@ -1,16 +1,16 @@
 uk:
-  activerecord:
-    attributes:
-      author:
-        name: Ім'я
-        original_name: Оригінальне ім'я
-      book:
-        title: Назва
-        original_title: Оригінальна назва
-        description: Опис
-        author_id: Автор
-        goodreads_url: Посилання на Goodreads
-        image: Зображення
+  back: Назад
+  confirm: Ви впевнені?
+  actions:
+    show: Переглянути
+    edit: Редагувати
+    destroy: Видалити
+    add_record:
+      author: Додати автора
+      book: Додати книгу
+    edit_record:
+      author: Редагувати автора
+      book: Редагувати книгу
   authors:
     index:
       title: Автори
@@ -34,3 +34,19 @@ uk:
       sign_up: Зареєструватися
       sign_out: Вийти
       edit_profile: Редагувати обліковий запис
+  activerecord:
+    attributes:
+      author:
+        name: Імя
+        original_name: Оригінальне ім'я
+      book:
+        title: Назва
+        original_title: Оригінальна назва
+        description: Опис
+        author_id: Автор
+        goodreads_url: Посилання на Goodreads
+        image: Зображення
+  helpers:
+    submit:
+      create: Додати
+      update: Оновити

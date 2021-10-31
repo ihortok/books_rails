@@ -1,4 +1,5 @@
 <h1><%= t('.title') %></h1>
+<%= link_to t('actions.add_record.author'), new_author_path %>
 
 <div class="row">
   <% @authors.each do |author| %>
@@ -6,10 +7,10 @@
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title"><%= author.name %></h5>
-          <%= link_to 'Show', author, class: 'btn btn-primary' %>
+          <%= link_to t('actions.show'), author, class: 'btn btn-primary' %>
           <% if policy(author).edit? %>
-            <%= link_to 'Edit', edit_author_path(author), class: 'btn btn-warning' %>
-            <%= link_to 'Destroy', author, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to t('actions.edit'), edit_author_path(author), class: 'btn btn-warning' %>
+            <%= link_to t('actions.destroy'), author, class: 'btn btn-danger', method: :delete, data: { confirm: t('confirm') } %>
           <% end %>
         </div>
       </div>
@@ -17,8 +18,6 @@
   <% end %>
 </div>
 
-<%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
-
-<br>
-
-<%= link_to 'New Author', new_author_path %>
+<% if @pagy.pages > 1 %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
+<% end %>
