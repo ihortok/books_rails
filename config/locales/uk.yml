@@ -1,7 +1,30 @@
 uk:
+  activerecord:
+    attributes:
+      author:
+        name: Ім'я
+        original_name: Оригінальне ім'я
+      book:
+        title: Назва
+        original_title: Оригінальна назва
+        description: Опис
+        author_id: Автор
+        goodreads_url: Посилання на Goodreads
+        image: Зображення
+  authors:
+    index:
+      title: Автори
+    new:
+      title: Додати автора
+    edit:
+      title: Редагувати автора
   books:
     index:
       title: Книги
+    new:
+      title: Додати книгу
+    edit:
+      title: Редагувати книгу
   header:
     nav:
       title: Меню

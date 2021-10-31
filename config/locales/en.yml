@@ -1,7 +1,18 @@
 en:
+  authors:
+    index:
+      title: Authors
+    new:
+      title: New Author
+    edit:
+      title: Editing Author
   books:
     index:
       title: Books
+    new:
+      title: New Book
+    edit:
+      title: Editing Book
   header:
     nav:
       title: Menu
