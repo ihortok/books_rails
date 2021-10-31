@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = :uk
+    I18n.locale = current_user&.locale_before_type_cast&.to_sym || I18n.default_locale
   end
 end
