@@ -56,9 +56,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_213554) do
   create_table "book_reactions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "book_id"
-    t.boolean "read", default: false
     t.boolean "like", default: false
-    t.boolean "favority", default: false
     t.index ["book_id"], name: "index_book_reactions_on_book_id"
     t.index ["user_id"], name: "index_book_reactions_on_user_id"
   end
