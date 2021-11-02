@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_213554) do
     t.bigint "book_id"
     t.boolean "like", default: false
     t.index ["book_id"], name: "index_book_reactions_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_book_reactions_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_book_reactions_on_user_id"
   end
 
