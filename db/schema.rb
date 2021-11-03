@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_31_170439) do
+ActiveRecord::Schema.define(version: 2021_11_01_213554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2021_10_31_170439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_authors_on_user_id"
+  end
+
+  create_table "book_reactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.boolean "like", default: false
+    t.index ["book_id"], name: "index_book_reactions_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_book_reactions_on_user_id_and_book_id", unique: true
+    t.index ["user_id"], name: "index_book_reactions_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|

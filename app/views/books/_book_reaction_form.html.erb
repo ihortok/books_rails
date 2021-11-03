@@ -1,0 +1,17 @@
+<% book_reaction = book.book_reactions.find_by(user: current_user) || book.book_reactions.new %>
+
+<div class="row">
+  <div class="col-md-6 col-xl-4">
+    <%= form_with(model: book_reaction) do |form| %>
+      <%= form.hidden_field :book_id, value: book.id %>
+      <div class="field">
+        <%= form.check_box :like, class: 'form-check-input', id: book.id %>
+        <%= form.label :like, '<i class="bi bi-hand-thumbs-up-fill"></i>'.html_safe, for: book.id, class: 'form-check-label' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit nil, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

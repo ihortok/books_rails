@@ -27,21 +27,25 @@ books = [
   }
 ]
 
-books.each do |book|
-  next if Author.exists?(name: book[:author]) && Book.exists?(title: book[:title])
+books.each do |b|
+  next if Author.exists?(name: b[:author]) && Book.exists?(title: b[:title])
 
-  author = Author.find_or_initialize_by(name: book[:author])
+  author = Author.find_or_initialize_by(name: b[:author])
 
   unless author.persisted?
     author.user = user
     author.save!
 
-    p "author #{book[:author]} - created"
+    p "author #{b[:author]} - created"
   end
 
-  next if Book.exists? title: book[:title]
+  next if Book.exists? title: b[:title]
 
-  Book.create!(title: book[:title], author: author, user: user)
+  book = Book.create!(title: b[:title], author: author, user: user)
 
-  p "book #{book[:title]} - created"
+  p "book #{book.title} - created"
+
+  BookReaction.create!(user: User.all.sample, book: book, like: [true, false].sample)
+
+  p "reaction on #{book.title} - created"
 end
