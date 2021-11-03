@@ -6,7 +6,7 @@
       <%= form.hidden_field :book_id, value: book.id %>
       <div class="field">
         <%= form.check_box :like, class: 'form-check-input', id: book.id %>
-        <%= form.label :like, class: 'form-check-label' %>
+        <%= form.label :like, '<i class="bi bi-hand-thumbs-up-fill"></i>'.html_safe, for: book.id, class: 'form-check-label' %>
       </div>
 
       <div class="actions">
