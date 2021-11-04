@@ -32,3 +32,11 @@
     background-size: cover;
   }
 }
+
+.book-reactions-form {
+  input[type=radio] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+}
