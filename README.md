@@ -1,24 +1,13 @@
-# README
+# Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Generate data
 
-Things you may want to cover:
+### run rake task to generate users
+```bash
+rake 'data_generator:users[2]'
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### run rake task to generate books
+```bash
+rake 'data_generator:books[20]'
+```
