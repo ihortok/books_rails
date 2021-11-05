@@ -41,7 +41,7 @@
                 <%= link_to edit_book_path(book), class: 'btn btn-success', title: :edit do %>
                   <i class="bi bi-pencil-square"></i>
                 <% end %>
-                <%= link_to book, class: 'btn btn-danger', title: :delete, method: :delete, data: { confirm: t('are_you_sure') } do %>
+                <%= link_to book, class: 'btn btn-danger', title: :destroy, method: :delete, data: { confirm: t('are_you_sure') } do %>
                   <i class="bi bi-trash"></i>
                 <% end %>
               <% end %>

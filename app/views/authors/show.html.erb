@@ -20,5 +20,9 @@
     <% if @author.wikipedia_url.present? %>
       <p><%= link_to t('.wikipedia'), @author.wikipedia_url, target: '_blank' %></p>
     <% end %>
+    <% if policy(@author).edit? %>
+      <%= link_to t('actions.edit'), edit_author_path(@author), class: 'btn btn-success' %>
+      <%= link_to t('actions.destroy'), @author, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+    <% end %> 
   </div>
 </div>
