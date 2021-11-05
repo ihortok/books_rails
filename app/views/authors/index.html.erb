@@ -3,15 +3,40 @@
 
 <div class="row">
   <% @authors.each do |author| %>
-    <div class="col-sm-6 col-lg-4 col-xl-3">
+    <div class="col-6 col-xl-4">
       <div class="card mb-4">
-        <div class="card-body">
-          <h5 class="card-title"><%= author.name %></h5>
-          <%= link_to t('actions.show'), author, class: 'btn btn-primary' %>
-          <% if policy(author).edit? %>
-            <%= link_to t('actions.edit'), edit_author_path(author), class: 'btn btn-warning' %>
-            <%= link_to t('actions.destroy'), author, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
-          <% end %>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <div class="vertical-card">
+              <%= link_to author, class: 'vertical-card-link' do %>
+                <% if author.image.attached? %>
+                  <span class="vertical-card-img"
+                        style="background-image: url(<%= rails_blob_url(author.image) %>)">
+                  </span>
+                <% else %>
+                  <span class="bg-secondary image-plug">
+                    <%= author.name %>
+                  </span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= author.name %></h5>
+              <%= link_to author, class: 'btn btn-primary', title: :view do %>
+                <i class="bi bi-eye"></i>
+              <% end %>
+              <% if policy(author).edit? %>
+                <%= link_to edit_author_path(author), class: 'btn btn-success', title: :edit do %>
+                  <i class="bi bi-pencil-square"></i>
+                <% end %>
+                <%= link_to author, class: 'btn btn-danger', title: :delete, method: :delete, data: { confirm: t('are_you_sure') } do %>
+                  <i class="bi bi-trash"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

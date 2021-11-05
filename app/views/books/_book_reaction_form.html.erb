@@ -1,6 +1,6 @@
 <% book_reaction = book.book_reactions.find_by(user: current_user) || book.book_reactions.new %>
 
-<div class="book-reaction-form">
+<div class="reaction-form">
   <%= form_with(model: book_reaction) do |form| %>
     <%= form.hidden_field :book_id, value: book.id %>
     <span>

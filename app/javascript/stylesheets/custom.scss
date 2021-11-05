@@ -27,7 +27,7 @@ img {
   text-align: center;
 }
 
-.book-cover {
+.vertical-card {
   position: relative;
   padding-bottom: 135%;
 
@@ -51,7 +51,7 @@ img {
   }
 }
 
-.book-reaction-form {
+.reaction-form {
   &-wrap {
     position: absolute;
     left: 0;
@@ -72,5 +72,6 @@ img {
   
   label {
     font-size: 1.2rem;
+    cursor: pointer;
   }
 }
