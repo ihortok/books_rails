@@ -14,6 +14,8 @@ en:
   authors:
     index:
       title: Authors
+    show:
+      wikipedia: You can find this author at Wikipedia
     new:
       title: New Author
     edit:

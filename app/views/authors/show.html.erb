@@ -1,12 +1,24 @@
-<p>
-  <strong>Name:</strong>
-  <%= @author.name %>
-</p>
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('authors.index.title'), url: authors_path }], title: @author .name } %>
 
-<p>
-  <strong>Original name:</strong>
-  <%= @author.original_name %>
-</p>
-
-<%= link_to t('actions.edit'), edit_author_path(@author) %> |
-<%= link_to t('back'), authors_path %>
+<div class="row">
+  <div class="col-lg-4">
+    <% if @author.image.attached? %>
+      <p><%= image_tag @author.image %></p>
+    <% else %>
+      <div class='image-plug-wrap'>
+        <div class='bg-secondary image-plug'>
+          <%= @author.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-8">
+    <h1><%= @author.name %></h1>
+    <% if @author.original_name.present? %>
+      <p><i><%= @author.original_name %></i></p>
+    <% end %>
+    <% if @author.wikipedia_url.present? %>
+      <p><%= link_to t('.wikipedia'), @author.wikipedia_url, target: '_blank' %></p>
+    <% end %>
+  </div>
+</div>
