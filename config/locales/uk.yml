@@ -21,6 +21,8 @@ uk:
   books:
     index:
       title: Книги
+    show:
+      goodreads: Переглянути цю книгу на Goodreads
     new:
       title: Додати книгу
     edit:

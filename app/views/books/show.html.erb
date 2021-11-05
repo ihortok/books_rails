@@ -1,33 +1,33 @@
-<% if @book.image.attached? %>
-  <p>
-    <%= image_tag @book.image %>
-  </p>
-<% end %>
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('books.index.title'), url: books_path }], title: @book.title } %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Original title:</strong>
-  <%= @book.original_title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author.name %>
-</p>
-
-<p>
-  <strong>Goodreads url:</strong>
-  <%= @book.goodreads_url %>
-</p>
-
-<%= link_to t('actions.edit'), edit_book_path(@book) %> |
-<%= link_to t('back'), books_path %>
+<div class="row">
+  <div class="col-lg-4">
+    <% if @book.image.attached? %>
+      <p><%= image_tag @book.image %></p>
+    <% else %>
+      <div class='image-plug-wrap'>
+        <div class='bg-secondary image-plug'>
+          <%= @book.title %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-lg-8">
+    <h1><%= @book.title %></h1>
+    <% if @book.original_title.present? %>
+      <p><i><%= @book.original_title %></i></p>
+    <% end %>
+    <% if @book.author %>
+      <p><%= link_to @book.author.name, author_path(@book.author) %></p>
+    <% end %>
+    <% if @book.description.present? %>
+      <p><%= @book.description %></p>
+    <% end %>
+    <% if @book.goodreads_url.present? %>
+      <p><%= link_to t('.goodreads'), @book.goodreads_url, target: '_blank' %></p>
+    <% end %> 
+    <% if policy(@book).edit? %>
+      <%= link_to t('actions.edit'), edit_book_path(@book), class: 'btn btn-success' %>
+    <% end %> 
+  </div>
+</div>

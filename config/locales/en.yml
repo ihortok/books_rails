@@ -21,6 +21,8 @@ en:
   books:
     index:
       title: Books
+    show:
+      goodreads: You can find this book at Goodreads
     new:
       title: New Book
     edit:
