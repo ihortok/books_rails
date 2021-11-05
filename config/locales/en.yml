@@ -14,6 +14,8 @@ en:
   authors:
     index:
       title: Authors
+    show:
+      wikipedia: You can find this author at Wikipedia
     new:
       title: New Author
     edit:
@@ -21,6 +23,8 @@ en:
   books:
     index:
       title: Books
+    show:
+      goodreads: You can find this book at Goodreads
     new:
       title: New Book
     edit:

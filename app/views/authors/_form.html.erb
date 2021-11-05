@@ -15,6 +15,11 @@
         <% end %>
 
         <div class="field">
+          <%= form.label :image, class: 'form-label' %>
+          <%= form.file_field :image, class: 'form-control' %>
+        </div>
+
+        <div class="field">
           <%= form.label :name, class: 'form-label' %>
           <%= form.text_field :name, class: 'form-control' %>
         </div>
@@ -22,6 +27,11 @@
         <div class="field">
           <%= form.label :original_name, class: 'form-label' %>
           <%= form.text_field :original_name, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= form.label :wikipedia_url, class: 'form-label' %>
+          <%= form.text_field :wikipedia_url, class: 'form-control' %>
         </div>
 
         <div class="actions">

@@ -1,17 +1,15 @@
 <% book_reaction = book.book_reactions.find_by(user: current_user) || book.book_reactions.new %>
 
-<div class="row book-reactions-form">
-  <div class="col-md-6 col-xl-4">
-    <%= form_with(model: book_reaction, local: false) do |form| %>
-      <%= form.hidden_field :book_id, value: book.id %>
-      <span>
-        <%= form.radio_button :like, 1, class: 'form-check-input', id: "#{book.id}_like", onclick: "this.form.submit();" %>
-        <%= form.label :like, "<i class='bi bi-hand-thumbs-up#{ '-fill' if book_reaction.persisted? && book_reaction.like }'></i>".html_safe, for: "#{book.id}_like", class: 'form-check-label' %>
-      </span>
-      <span>
-        <%= form.radio_button :like, 0, class: 'form-check-input', id: "#{book.id}_unlike", onclick: "this.form.submit();" %>
-        <%= form.label :like, "<i class='bi bi-hand-thumbs-down#{ '-fill' if book_reaction.persisted? && !book_reaction.like }'></i>".html_safe, for: "#{book.id}_unlike", class: 'form-check-label' %>
-      </span>
-    <% end %>
-  </div>
+<div class="reaction-form">
+  <%= form_with(model: book_reaction) do |form| %>
+    <%= form.hidden_field :book_id, value: book.id %>
+    <span>
+      <%= form.radio_button :like, 1, class: 'form-check-input', id: "#{book.id}_like", onclick: "this.form.submit();" %>
+      <%= form.label :like, "<i class='bi bi-hand-thumbs-up#{ '-fill' if book_reaction.persisted? && book_reaction.like }'></i>".html_safe, for: "#{book.id}_like", class: 'form-check-label text-primary' %>
+    </span>
+    <span>
+      <%= form.radio_button :like, 0, class: 'form-check-input', id: "#{book.id}_unlike", onclick: "this.form.submit();" %>
+      <%= form.label :like, "<i class='bi bi-hand-thumbs-down#{ '-fill' if book_reaction.persisted? && !book_reaction.like }'></i>".html_safe, for: "#{book.id}_unlike", class: 'form-check-label text-primary' %>
+    </span>
+  <% end %>
 </div>
