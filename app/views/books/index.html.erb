@@ -1,5 +1,12 @@
-<h1><%= t('.title') %></h1>
-<%= link_to t('actions.add_record.book'), new_book_path %>
+<div class="d-flex align-items-center mb-3">
+  <h1 class="mb-0 me-3"><%= t('.title') %></h1>
+  <% if user_signed_in? %>
+    <%= link_to new_book_path, class: 'btn border border-primary' do %>
+      <i class="bi bi-plus-lg"></i>
+      <%= t('actions.add_record.book') %>
+    <% end %>
+  <% end %>
+</div>
 
 <div class="row">
   <% @books.each do |book| %>
