@@ -1,5 +1,3 @@
-<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('books.index.title'), url: books_path }, { title: @book.title, url: book_path(@book) }], title: t('actions.edit') } %>
-
-<h1><%= t('.title') %></h1>
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('books.index.title'), url: books_path }, { title: @book.title, url: book_path(@book) }], title: t('actions.edit_record.book') } %>
 
 <%= render 'form', book: @book %>

@@ -4,6 +4,7 @@ en:
   actions:
     show: Show
     edit: Edit
+    new: Add
     destroy: Destroy
     add_record:
       author: New Author

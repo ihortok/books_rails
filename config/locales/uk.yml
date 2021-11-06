@@ -4,6 +4,7 @@ uk:
   actions:
     show: Переглянути
     edit: Редагувати
+    new: Додати
     destroy: Видалити
     add_record:
       author: Додати автора
