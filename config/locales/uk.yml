@@ -42,7 +42,7 @@ uk:
   activerecord:
     attributes:
       author:
-        name: Імя
+        name: Ім'я
         original_name: Оригінальне ім'я
       book:
         title: Назва
