@@ -4,6 +4,7 @@ uk:
   actions:
     show: Переглянути
     edit: Редагувати
+    new: Додати
     destroy: Видалити
     add_record:
       author: Додати автора
@@ -41,7 +42,7 @@ uk:
   activerecord:
     attributes:
       author:
-        name: Імя
+        name: Ім'я
         original_name: Оригінальне ім'я
       book:
         title: Назва

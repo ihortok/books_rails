@@ -1,6 +1,4 @@
-<%= link_to t('back'), authors_path %>
-
-<h1><%= t('.title') %></h1>
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('authors.index.title'), url: authors_path }], title: t('actions.add_record.author') } %>
 
 <%= render 'form', author: @author %>
 
