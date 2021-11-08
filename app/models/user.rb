@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :authors
   has_many :books
   has_many :book_reactions
+  has_many :lists
 
   validates :nickname, presence: true
   validates :locale, presence: true
