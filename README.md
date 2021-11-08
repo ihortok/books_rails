@@ -11,3 +11,10 @@ rake 'data_generator:users[2]'
 ```bash
 rake 'data_generator:books[20]'
 ```
+
+## Run application
+
+```bash
+rails s
+bin/webpack-dev-server
+```
