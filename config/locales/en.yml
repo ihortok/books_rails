@@ -9,9 +9,11 @@ en:
     add_record:
       author: New Author
       book: New Book
+      list: New List
     edit_record:
       author: Edit Author
       book: Edit Book
+      list: Edit List
   authors:
     index:
       title: Authors
@@ -30,11 +32,23 @@ en:
       title: New Book
     edit:
       title: Editing Book
+  lists:
+    index:
+      title: My Lists
+      books_count:
+        one: 1 book is added to this list
+        zero: This list is currently empty
+        other: "%{count} books are added to this list"
+    new:
+      title: New List
+    edit:
+      title: Editing List
   header:
     nav:
       title: Menu
       authors: Authors
       books: Books
+      lists: My lists
       log_in: Log in
       sign_up: Sign up
       sign_out: Sign out

@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   before_action :authorize_access, only: %i[show edit update destroy]
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show; end

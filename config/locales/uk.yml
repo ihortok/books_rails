@@ -9,9 +9,11 @@ uk:
     add_record:
       author: Додати автора
       book: Додати книгу
+      list: Створити список
     edit_record:
       author: Редагувати автора
       book: Редагувати книгу
+      list: Редагувати список
   authors:
     index:
       title: Автори
@@ -30,11 +32,23 @@ uk:
       title: Додати книгу
     edit:
       title: Редагувати книгу
+  lists:
+    index:
+      title: Мої списки
+      books_count:
+        one: До цього списку додано одну книгу
+        zero: Цей список поки що порожній
+        other: "До цього списку додано %{count} книг(и)"
+    new:
+      title: Новий список
+    edit:
+      title: Редагувати список
   header:
     nav:
       title: Меню
       authors: Автори
       books: Книги
+      lists: Мої списки
       log_in: Увійти
       sign_up: Зареєструватися
       sign_out: Вийти
