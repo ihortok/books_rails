@@ -3,6 +3,7 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_list, only: %i[show edit update destroy]
+  before_action :authorize_access, only: %i[show edit update destroy]
 
   def index
     @lists = List.all
@@ -44,6 +45,10 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def authorize_access
+    authorize @list
   end
 
   def list_params
