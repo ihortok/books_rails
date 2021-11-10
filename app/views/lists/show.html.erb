@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('lists.index.title'), url: lists_path }], title: @list.title } %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @list.title %>
-</p>
+<h1><%= @list.title %></h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @list.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<div class="actions">
+  <%= link_to t('actions.edit'), edit_list_path(@list), class: 'btn btn-success' %>
+  <%= link_to t('actions.destroy'), @list, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+</div>
