@@ -40,6 +40,11 @@
                 <li class="nav-item">
                   <%= link_to t('actions.add_record.list'), new_list_path, class: 'nav-link' %>
                 </li>
+                <% current_user.lists.each do |list| %>
+                  <li class="nav-item">
+                    <%= link_to list.title, list, class: 'nav-link' %>
+                  </li>
+                <% end %>
               </ul>
             </li>
           <% end %>
