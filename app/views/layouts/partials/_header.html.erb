@@ -33,6 +33,21 @@
               </ul>
             <% end %>
           </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to t('header.nav.lists'), lists_path, class: 'nav-link' %>
+              <ul class="navbar-nav navbar-submenu justify-content-end flex-grow-1 px-3">
+                <li class="nav-item">
+                  <%= link_to t('actions.add_record.list'), new_list_path, class: 'nav-link' %>
+                </li>
+                <% current_user.lists.each do |list| %>
+                  <li class="nav-item">
+                    <%= link_to list.title, list, class: 'nav-link' %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
           <hr>
           <% if user_signed_in? %>
             <li class="nav-item">

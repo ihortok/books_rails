@@ -1,0 +1,8 @@
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('lists.index.title'), url: lists_path }], title: @list.title } %>
+
+<h1><%= @list.title %></h1>
+
+<div class="actions">
+  <%= link_to t('actions.edit'), edit_list_path(@list), class: 'btn btn-success' %>
+  <%= link_to t('actions.destroy'), @list, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+</div>

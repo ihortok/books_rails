@@ -1,0 +1,3 @@
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('lists.index.title'), url: lists_path }], title: t('actions.add_record.list') } %>
+
+<%= render 'form', list: @list %>
