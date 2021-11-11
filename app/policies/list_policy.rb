@@ -8,7 +8,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def edit?
-    show?
+    update?
   end
 
   def update?
@@ -16,6 +16,14 @@ class ListPolicy < ApplicationPolicy
   end
 
   def destroy?
-    show?
+    update?
+  end
+
+  def add_book?
+    update?
+  end
+
+  def delete_book?
+    update?
   end
 end

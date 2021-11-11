@@ -12,11 +12,8 @@
   <% @lists.each do |list| %>
     <div class="card mb-4">
       <div class="card-body">
-        <h5 class="card-title"><%= list.title %></h5>
+        <%= link_to list.title, list, class: 'fs-4' %>
         <p class="card-text"><%= t('.books_count', count: list.books.count) %></p>
-        <%= link_to list, class: 'btn btn-primary', title: :view do %>
-          <i class="bi bi-eye"></i>
-        <% end %>
         <%= link_to edit_list_path(list), class: 'btn btn-success', title: :edit do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>

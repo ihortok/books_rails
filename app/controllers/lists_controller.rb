@@ -2,8 +2,9 @@
 
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list, only: %i[show edit update destroy]
-  before_action :authorize_access, only: %i[show edit update destroy]
+  before_action :set_list, only: %i[show edit update destroy add_book delete_book]
+  before_action :set_books, only: :show
+  before_action :authorize_access, only: %i[show edit update destroy add_book delete_book]
 
   def index
     @lists = current_user.lists
@@ -41,10 +42,34 @@ class ListsController < ApplicationController
     redirect_to lists_url, notice: 'List was successfully destroyed.'
   end
 
+  def add_book
+    result = Lists::BooksPusher.new(list: @list, book_id: params[:list][:book_id]).call
+
+    if result.success?
+      redirect_to request.referer, notice: "Book was successfully added to #{@list.title}."
+    else
+      redirect_to request.referer, alert: result.error
+    end
+  end
+
+  def delete_book
+    result = Lists::BooksRemover.new(list: @list, book_id: params[:list][:book_id]).call
+
+    if result.success?
+      redirect_to request.referer, notice: "Book was successfully deleted from #{@list.title}."
+    else
+      redirect_to request.referer, alert: result.error
+    end
+  end
+
   private
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def set_books
+    @books = @list.books
   end
 
   def authorize_access
@@ -52,6 +77,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:title, :user_id)
+    params.require(:list).permit(:title)
   end
 end

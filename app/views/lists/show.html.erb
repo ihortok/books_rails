@@ -6,3 +6,33 @@
   <%= link_to t('actions.edit'), edit_list_path(@list), class: 'btn btn-success' %>
   <%= link_to t('actions.destroy'), @list, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
 </div>
+
+<% if @books.any? %>
+  <div class="row mt-4 books">
+    <% @books.each do |book| %>
+      <div class="col-6 col-md-3 col-lg-2 mb-4">
+        <div class="book-cover-card">
+          <%= link_to book, class: 'vertical-card-link' do %>
+            <% if book.image.attached? %>
+              <span class="vertical-card-img"
+                    style="background-image: url(<%= rails_blob_url(book.image) %>)">
+              </span>
+            <% else %>
+              <span class="bg-secondary image-plug">
+                <%= book.title %>
+              </span>
+            <% end %>
+          <% end %>
+          <%= form_with model: @list, url: delete_book_list_path(@list), method: :post, class: 'remove-from-list' do |form| %>
+            <%= form.hidden_field :book_id, value: book.id %>
+            <%= button_tag type: :submit do %>
+              <i class="bi bi-x-circle-fill"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="mt-3"><%= t('.list_empty', books_url: books_path).html_safe %></p>
+<% end %>
