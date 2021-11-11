@@ -25,10 +25,38 @@
     <% end %>
     <% if @book.goodreads_url.present? %>
       <p><%= link_to t('.goodreads'), @book.goodreads_url, target: '_blank' %></p>
-    <% end %> 
+    <% end %>
     <% if policy(@book).edit? %>
-      <%= link_to t('actions.edit'), edit_book_path(@book), class: 'btn btn-success' %>
-      <%= link_to t('actions.destroy'), @book, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
-    <% end %> 
+      <div class="actions">
+        <%= link_to t('actions.edit'), edit_book_path(@book), class: 'btn btn-success' %>
+        <%= link_to t('actions.destroy'), @book, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+      </div>
+    <% end %>
+    <% if @lists.any? %>
+      <div class="mt-4" data-controller="visibility">
+        <button class="btn border border-primary" data-action="click->visibility#toggle">
+          <i class="bi bi-plus-lg"></i>
+          <%= t('.add_to_list') %>
+        </button>
+        <ul class="list-group col-sm-6 mt-4 d-none" data-visibility-target="dynamic">
+          <% @lists.each do |list| %>
+            <li class="list-group-item d-flex justify-content-between">
+              <%= list.title %>
+              <% if list.books.exists?(id: @book.id) %>
+                <%= form_with model: list, url: delete_book_list_path(list), method: :post do |form| %>
+                  <%= form.hidden_field :book_id, value: @book.id %>
+                  <%= form.submit :delete, class: 'btn btn-danger' %>
+                <% end %>
+              <% else %>
+                <%= form_with model: list, url: add_book_list_path(list), method: :post do |form| %>
+                  <%= form.hidden_field :book_id, value: @book.id %>
+                  <%= form.submit :add, class: 'btn btn-primary' %>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>

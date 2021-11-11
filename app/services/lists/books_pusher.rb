@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ListsPusher
+class Lists::BooksPusher
   def initialize(list:, book_id:)
     @list = list
     @book_id = book_id

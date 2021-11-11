@@ -28,6 +28,7 @@ en:
       title: Books
     show:
       goodreads: You can find this book at Goodreads
+      add_to_list: Add to list
     new:
       title: New Book
     edit:

@@ -28,6 +28,7 @@ uk:
       title: Книги
     show:
       goodreads: Переглянути цю книгу на Goodreads
+      add_to_list: Додати до списку
     new:
       title: Додати книгу
     edit:
