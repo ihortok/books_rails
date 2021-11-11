@@ -84,3 +84,33 @@ img {
 .navbar-submenu {
   font-size: .8rem;
 }
+
+.remove-from-list {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+
+  button {
+    background: transparent;
+    border: none;
+    color: $danger;
+
+    &:hover {
+      color: $red-600;
+    }
+    
+    i {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+      position: relative;
+      
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

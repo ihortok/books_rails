@@ -40,6 +40,8 @@ en:
         one: 1 book is added to this list
         zero: This list is currently empty
         other: "%{count} books are added to this list"
+    show:
+      list_empty: List is currently empty. Explore <a href="%{books_url}">books</a> and add them to the list.
     new:
       title: New List
     edit:
