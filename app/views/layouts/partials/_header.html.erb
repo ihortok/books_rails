@@ -51,17 +51,11 @@
           <hr>
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to t('header.nav.edit_profile'), edit_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
               <%= link_to t('header.nav.sign_out'), destroy_user_session_path, method: :delete, data: { confirm: t('are_you_sure') }, class: 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item">
               <%= link_to t('header.nav.log_in'), new_user_session_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to t('header.nav.sign_up'), new_user_registration_path, class: 'nav-link' %>
             </li>
           <% end %>
         </ul>
