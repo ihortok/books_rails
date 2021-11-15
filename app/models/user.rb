@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable and :recoverable
-  devise :database_authenticatable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable
 
   enum locale: { Ukrainian: 'uk', English: 'en' }
   enum role: { user: 0, author: 1, editor: 2, admin: 3 }
