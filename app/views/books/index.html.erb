@@ -44,12 +44,16 @@
               <%= link_to book, class: 'btn btn-primary', title: :view do %>
                 <i class="bi bi-eye"></i>
               <% end %>
-              <% if user_signed_in? && policy(book).edit? %>
-                <%= link_to edit_book_path(book), class: 'btn btn-success', title: :edit do %>
-                  <i class="bi bi-pencil-square"></i>
+              <% if user_signed_in? %>
+                <% if policy(book).update? %>
+                  <%= link_to edit_book_path(book), class: 'btn btn-success', title: :edit do %>
+                    <i class="bi bi-pencil-square"></i>
+                  <% end %>
                 <% end %>
-                <%= link_to book, class: 'btn btn-danger', title: :destroy, method: :delete, data: { confirm: t('are_you_sure') } do %>
-                  <i class="bi bi-trash"></i>
+                <% if policy(book).destroy? %>
+                  <%= link_to book, class: 'btn btn-danger', title: :destroy, method: :delete, data: { confirm: t('are_you_sure') } do %>
+                    <i class="bi bi-trash"></i>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>

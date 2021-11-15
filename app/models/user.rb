@@ -15,4 +15,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :locale, presence: true
+
+  def author_or_higher?
+    author? || editor? || admin?
+  end
 end

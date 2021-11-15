@@ -3,7 +3,7 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_user!, only: %i[edit create update destroy]
   before_action :set_author, only: %i[show edit update destroy]
-  before_action :authorize_access, only: %i[edit update destroy]
+  before_action :authorize_access
 
   def index
     @pagy, @authors = pagy(Author.all)
@@ -48,7 +48,11 @@ class AuthorsController < ApplicationController
   end
 
   def authorize_access
-    authorize @author, :edit?
+    if @author.present?
+      authorize @author
+    else
+      authorize Author
+    end
   end
 
   def author_params

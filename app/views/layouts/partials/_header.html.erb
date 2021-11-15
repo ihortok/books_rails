@@ -15,7 +15,7 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <%= link_to t('header.nav.books'), books_path, class: 'nav-link' %>
-            <% if user_signed_in? %>
+            <% if user_signed_in? && policy(Book).create? %>
               <ul class="navbar-nav navbar-submenu justify-content-end flex-grow-1 px-3">
                 <li class="nav-item">
                   <%= link_to t('actions.add_record.book'), new_book_path, class: 'nav-link' %>
@@ -25,7 +25,7 @@
           </li>
           <li class="nav-item">
             <%= link_to t('header.nav.authors'), authors_path, class: 'nav-link' %>
-            <% if user_signed_in? %>
+            <% if user_signed_in? && policy(Author).create? %>
               <ul class="navbar-nav navbar-submenu justify-content-end flex-grow-1 px-3">
                 <li class="nav-item">
                   <%= link_to t('actions.add_record.author'), new_author_path, class: 'nav-link' %>
