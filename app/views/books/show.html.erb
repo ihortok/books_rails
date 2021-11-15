@@ -26,7 +26,7 @@
     <% if @book.goodreads_url.present? %>
       <p><%= link_to t('.goodreads'), @book.goodreads_url, target: '_blank' %></p>
     <% end %>
-    <% if policy(@book).edit? %>
+    <% if user_signed_in? && policy(@book).edit? %>
       <div class="actions">
         <%= link_to t('actions.edit'), edit_book_path(@book), class: 'btn btn-success' %>
         <%= link_to t('actions.destroy'), @book, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
