@@ -7,12 +7,12 @@ class ListPolicy < ApplicationPolicy
     false
   end
 
-  def edit?
-    update?
-  end
-
   def update?
     show?
+  end
+
+  def edit?
+    update?
   end
 
   def destroy?

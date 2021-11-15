@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :validatable
 
   enum locale: { Ukrainian: 'uk', English: 'en' }
+  enum role: { user: 0, author: 1, editor: 2, admin: 3 }
 
   has_many :authors
   has_many :books
@@ -14,4 +15,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :locale, presence: true
+
+  def author_or_higher?
+    author? || editor? || admin?
+  end
 end

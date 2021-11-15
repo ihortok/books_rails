@@ -9,15 +9,15 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    false
+    return true if user&.author_or_higher?
   end
 
   def new?
@@ -25,6 +25,10 @@ class ApplicationPolicy
   end
 
   def update?
+    return true if user&.admin? || user&.editor?
+
+    return true if user&.author? && record.user == user
+
     false
   end
 
@@ -33,21 +37,6 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
-  end
-
-  class Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
-
-    private
-
-    attr_reader :user, :scope
+    update?
   end
 end
