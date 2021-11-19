@@ -5,8 +5,10 @@ class Author < ApplicationRecord
 
   belongs_to :user
 
+  has_many :books
   has_one_attached :image
 
   validates :name, presence: true
-  validates :image, size: { less_than: 250.kilobytes, message: 'is not given between size' }
+  validates :original_name, presence: true
+  validates :image, size: { less_than: 250.kilobytes, message: 'size must be less than 250 kilobytes' }
 end

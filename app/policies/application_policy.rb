@@ -17,7 +17,7 @@ class ApplicationPolicy
   end
 
   def create?
-    return true if user&.author_or_higher?
+    return true if user.author_or_higher?
   end
 
   def new?
@@ -25,9 +25,9 @@ class ApplicationPolicy
   end
 
   def update?
-    return true if user&.admin? || user&.editor?
+    return true if user.editor_or_higher?
 
-    return true if user&.author? && record.user == user
+    return true if user.author? && record.user == user
 
     false
   end
