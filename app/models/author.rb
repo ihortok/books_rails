@@ -8,7 +8,7 @@ class Author < ApplicationRecord
   has_many :books
   has_one_attached :image
 
-  validates :name, presence: true
-  validates :original_name, presence: true
+  validates_presence_of :name
+  validates_presence_of :original_name
   validates :image, size: { less_than: 250.kilobytes, message: 'size must be less than 250 kilobytes' }
 end

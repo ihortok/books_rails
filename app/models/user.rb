@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :book_reactions, dependent: :destroy
   has_many :lists, dependent: :destroy
 
-  validates :nickname, presence: true
-  validates :locale, presence: true
+  validates_presence_of :nickname
+  validates_presence_of :locale
 
   def author_or_higher?
     author? || editor? || admin?
