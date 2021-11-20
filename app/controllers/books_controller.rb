@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit create update destroy]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :set_book, only: %i[show edit update destroy]
   before_action :authorize_access
   before_action :set_lists, only: :show
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    if @book.update(book_params)
+    if @book.update(book_update_params)
       redirect_to @book, notice: 'Book was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -62,5 +62,11 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :original_title, :description, :author_id, :goodreads_url, :image)
+  end
+
+  def book_update_params
+    return book_params if @book.user
+
+    book_params.merge(user: current_user)
   end
 end

@@ -5,5 +5,8 @@ FactoryBot.define do
     user
     author
     title { Faker::Book.title }
+    original_title { title }
+    description { Faker::Lorem.paragraph }
+    goodreads_url { Faker::Internet.url }
   end
 end

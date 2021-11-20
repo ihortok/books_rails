@@ -8,15 +8,19 @@ class User < ApplicationRecord
   enum locale: { Ukrainian: 'uk', English: 'en' }
   enum role: { user: 0, author: 1, editor: 2, admin: 3 }
 
-  has_many :authors
-  has_many :books
-  has_many :book_reactions
-  has_many :lists
+  has_many :authors, dependent: :nullify
+  has_many :books, dependent: :nullify
+  has_many :book_reactions, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
-  validates :nickname, presence: true
-  validates :locale, presence: true
+  validates_presence_of :nickname
+  validates_presence_of :locale
 
   def author_or_higher?
     author? || editor? || admin?
+  end
+
+  def editor_or_higher?
+    editor? || admin?
   end
 end
