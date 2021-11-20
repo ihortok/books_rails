@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'books#index'
   devise_for :users
+
+  root to: 'books#index'
+
+  resources :users, only: %i[index show]
   resources :authors
   resources :books
   resources :book_reactions, only: %i[create update]
@@ -10,5 +13,8 @@ Rails.application.routes.draw do
       post :delete_book
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :admin do
+    resources :users, only: %i[edit update destroy]
+  end
 end
