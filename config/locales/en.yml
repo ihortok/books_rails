@@ -14,6 +14,9 @@ en:
       author: Edit Author
       book: Edit Book
       list: Edit List
+  users:
+    index:
+      title: Users
   authors:
     index:
       title: Authors

@@ -1,0 +1,13 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="mb-0 me-3"><%= t('.title') %></h1>
+</div>
+
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <%= link_to user.nickname, user, class: 'fs-4' %>
+      </div>
+    </div>
+  <% end %>
+</div>
