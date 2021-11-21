@@ -29,6 +29,21 @@ describe User, type: :model do
     end
   end
 
+  describe '#create' do
+    let(:default_lists_creator) { double }
+
+    before do
+      allow(Lists::DefaultCreator).to receive(:new).with(subject).and_return(default_lists_creator)
+      allow(default_lists_creator).to receive(:call)
+    end
+
+    it 'triggers default lists creation' do
+      subject.save!
+
+      expect(default_lists_creator).to have_received(:call)
+    end
+  end
+
   describe '#author_or_higher?' do
     it { expect(subject.author_or_higher?).to be false }
 

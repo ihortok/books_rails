@@ -43,6 +43,9 @@ uk:
     edit:
       title: Редагувати книгу
   lists:
+    default:
+      favorite: Улюблені
+      want_to_read: Хочу прочитати
     index:
       title: Мої списки
       books_count:
