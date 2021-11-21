@@ -1,3 +1,12 @@
 <%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('users.index.title'), url: users_path }], title: @user.nickname } %>
 
-<h1><%= @user.nickname %></h1>
+<h2><%= @user.nickname %></h2>
+
+<% if user_signed_in? %>
+  <div class="actions">
+    <% if policy(@user).access? %>
+      <%= link_to t('actions.edit'), edit_admin_user_path, class: 'btn btn-success' %>
+      <%= link_to t('actions.destroy'), admin_user_path, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+    <% end %>
+  </div>
+<% end %>
