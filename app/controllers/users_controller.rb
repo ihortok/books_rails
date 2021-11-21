@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def set_book_reactions
-    @liked_books = @user.books.joins(:book_reactions).where(book_reactions: { like: true })
-    @unliked_books = @user.books.joins(:book_reactions).where(book_reactions: { like: false })
+    @liked_books = Book.joins(:book_reactions).where(book_reactions: { user: @user, like: true })
+    @unliked_books = Book.joins(:book_reactions).where(book_reactions: { user: @user, like: false })
   end
 end

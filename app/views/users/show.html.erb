@@ -2,12 +2,10 @@
 
 <h2><%= @user.nickname %></h2>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && policy(@user).access? %>
   <div class="actions mb-4">
-    <% if policy(@user).access? %>
-      <%= link_to t('actions.edit'), edit_admin_user_path, class: 'btn btn-success' %>
-      <%= link_to t('actions.destroy'), admin_user_path, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
-    <% end %>
+    <%= link_to t('actions.edit'), edit_admin_user_path, class: 'btn btn-success' %>
+    <%= link_to t('actions.destroy'), admin_user_path, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
   </div>
 <% end %>
 
