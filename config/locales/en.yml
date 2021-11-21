@@ -18,6 +18,11 @@ en:
   users:
     index:
       title: Users
+    show:
+      book_reactions:
+        liked_books: Liked books
+        unliked_books: Unliked books
+        empty: User has not rated any books yet
   authors:
     index:
       title: Authors

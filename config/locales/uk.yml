@@ -18,6 +18,11 @@ uk:
   users:
     index:
       title: Користувачі
+    show:
+      book_reactions:
+        liked_books: Книги, що сподобалися
+        unliked_books: Книги, що не сподобалися
+        empty: Користувач поки не оцінив жодної книги
   authors:
     index:
       title: Автори
