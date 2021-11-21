@@ -14,6 +14,15 @@ en:
       author: Edit Author
       book: Edit Book
       list: Edit List
+      user: Edit User
+  users:
+    index:
+      title: Users
+    show:
+      book_reactions:
+        liked_books: Liked books
+        unliked_books: Unliked books
+        empty: User has not rated any books yet
   authors:
     index:
       title: Authors

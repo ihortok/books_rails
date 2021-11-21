@@ -1,0 +1,25 @@
+<%= render partial: 'shared/breadcrumbs', locals: { links: [{ title: t('users.index.title'), url: users_path }], title: @user.nickname } %>
+
+<h2><%= @user.nickname %></h2>
+
+<% if user_signed_in? %>
+  <div class="actions mb-4">
+    <% if policy(@user).access? %>
+      <%= link_to t('actions.edit'), edit_admin_user_path, class: 'btn btn-success' %>
+      <%= link_to t('actions.destroy'), admin_user_path, class: 'btn btn-danger', method: :delete, data: { confirm: t('are_you_sure') } %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @liked_books.any? || @unliked_books.any? %>
+  <% if @liked_books.any? %>
+    <h3><%= t('.book_reactions.liked_books') %></h3>
+    <%= render 'shared/books_covers', books: @liked_books %>
+  <% end %>
+  <% if @unliked_books.any? %>
+    <h3><%= t('.book_reactions.unliked_books') %></h3>
+    <%= render 'shared/books_covers', books: @unliked_books %>
+  <% end %>
+<% else %>
+  <p><%= t('.book_reactions.empty') %></p>
+<% end %>
