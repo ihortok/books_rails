@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates_presence_of :nickname
   validates_presence_of :locale
 
+  after_create_commit { Lists::DefaultCreator.new(self).call }
+
   def author_or_higher?
     author? || editor? || admin?
   end

@@ -43,6 +43,9 @@ en:
     edit:
       title: Editing Book
   lists:
+    default:
+      favorite: Favorite
+      want_to_read: Want to read
     index:
       title: My Lists
       books_count:
