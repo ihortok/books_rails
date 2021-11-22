@@ -1,5 +1,24 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: books
+#
+#  id             :bigint           not null, primary key
+#  description    :text
+#  goodreads_url  :string
+#  original_title :string
+#  title          :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  author_id      :bigint
+#  user_id        :bigint
+#
+# Indexes
+#
+#  index_books_on_author_id  (author_id)
+#  index_books_on_user_id    (user_id)
+#
 class Book < ApplicationRecord
   default_scope { order(updated_at: :desc) }
 
