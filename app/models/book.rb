@@ -26,6 +26,7 @@ class Book < ApplicationRecord
   belongs_to :author
 
   has_many :book_reactions, dependent: :destroy
+  has_many :reviews
   has_and_belongs_to_many :lists
   has_one_attached :image
 
