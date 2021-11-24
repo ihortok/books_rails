@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :books
   resources :book_reactions, only: %i[create update]
+  resources :reviews
   resources :lists do
     member do
       post :add_book
