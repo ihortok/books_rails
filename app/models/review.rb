@@ -22,4 +22,6 @@ class Review < ApplicationRecord
 
   validates_presence_of :title
   validates :content, presence: true, length: { minimum: 100 }
+
+  has_rich_text :content
 end
