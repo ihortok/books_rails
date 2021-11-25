@@ -10,9 +10,13 @@ import "channels"
 import "bootstrap/dist/js/bootstrap"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import "../stylesheets/application"
+import "controllers"
+import "trix"
+import "@rails/actiontext"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "controllers"
+require("trix")
+require("@rails/actiontext")
