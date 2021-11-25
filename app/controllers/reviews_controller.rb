@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
   before_action :set_review, except: %i[index new create]
 
   def index
-    @reviews = Review.all
+    book = Book.find_by(id: params[:book_id])
+
+    @reviews = book&.reviews || Review.all
   end
 
   def show; end
@@ -17,10 +19,10 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def create
-    @review = current_user.reviews.create(review_params)
+    @review = current_user.reviews.create(review_params.merge(book_id: params[:book_id]))
 
     if @review.save
-      redirect_to @review, notice: 'Review was successfully created.'
+      redirect_to book_review_path(@review.book, @review), notice: 'Review was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +30,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to @review, notice: 'Review was successfully updated.'
+      redirect_to book_review_path(@review.book, @review), notice: 'Review was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

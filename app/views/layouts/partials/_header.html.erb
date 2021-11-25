@@ -51,13 +51,6 @@
           <% end %>
           <li class="nav-item">
             <%= link_to t('header.nav.reviews'), reviews_path, class: 'nav-link' %>
-            <% if user_signed_in? %>
-              <ul class="navbar-nav navbar-submenu justify-content-end flex-grow-1 px-3">
-                <li class="nav-item">
-                  <%= link_to t('actions.add_record.review'), new_review_path, class: 'nav-link' %>
-                </li>
-              </ul>
-            <% end %>
           </li>
           <hr>
           <% if user_signed_in? %>

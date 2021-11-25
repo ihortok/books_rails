@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show]
   resources :authors
-  resources :books
+  resources :books do
+    resources :reviews
+  end
+  resources :reviews, only: :index
   resources :book_reactions, only: %i[create update]
-  resources :reviews
   resources :lists do
     member do
       post :add_book
