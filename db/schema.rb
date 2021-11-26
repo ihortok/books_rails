@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_153253) do
     t.text "content"
     t.bigint "user_id"
     t.bigint "book_id"
-    t.string "book_title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"

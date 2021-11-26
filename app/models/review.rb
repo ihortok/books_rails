@@ -3,7 +3,6 @@
 # Table name: reviews
 #
 #  id         :bigint           not null, primary key
-#  book_title :string
 #  content    :text
 #  title      :string
 #  created_at :datetime         not null
