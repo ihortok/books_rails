@@ -60,6 +60,9 @@ en:
       title: New List
     edit:
       title: Editing List
+  reviews:
+    index:
+      empty: There are currently no reviews.
   header:
     nav:
       title: Menu

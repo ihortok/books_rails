@@ -60,6 +60,9 @@ uk:
       title: Новий список
     edit:
       title: Редагувати список
+  reviews:
+    index:
+      empty: Наразі немає жодної рецензії.
   header:
     nav:
       title: Меню

@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def index
     book = Book.find_by(id: params[:book_id])
 
-    @reviews = book&.reviews || Review.all
+    @pagy, @reviews = pagy(book&.reviews || Review.all, items: 20)
   end
 
   def show; end
@@ -49,6 +49,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :content)
+    params.require(:review).permit(:content)
   end
 end
