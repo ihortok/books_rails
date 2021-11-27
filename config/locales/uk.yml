@@ -9,7 +9,7 @@ uk:
     add_record:
       author: Додати автора
       book: Додати книгу
-      review: Додати рецензію
+      review: Написати рецензію
       list: Створити список
     edit_record:
       author: Редагувати автора
