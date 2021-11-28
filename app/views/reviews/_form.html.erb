@@ -15,17 +15,11 @@
         <% end %>
 
         <div class="field">
-          <%= form.label :title, class: 'form-label'%>
-          <%= form.text_field :title, class: 'form-control' %>
-        </div>
-
-        <div class="field">
-          <%= form.label :content, class: 'form-label'%>
           <%= form.rich_text_area :content, class: 'form-control' %>
         </div>
 
         <div class="actions">
-          <%= form.submit nil, class: 'btn btn-primary' %>
+          <%= form.submit class: 'btn btn-primary' %>
         </div>
       </div>
     <% end %>
