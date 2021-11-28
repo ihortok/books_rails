@@ -9,10 +9,12 @@ en:
     add_record:
       author: New Author
       book: New Book
+      review: New Review
       list: New List
     edit_record:
       author: Edit Author
       book: Edit Book
+      review: Edit Review
       list: Edit List
       user: Edit User
   users:
@@ -58,11 +60,15 @@ en:
       title: New List
     edit:
       title: Editing List
+  reviews:
+    index:
+      empty: There are currently no reviews.
   header:
     nav:
       title: Menu
       authors: Authors
       books: Books
+      reviews: Reviews
       lists: My lists
       log_in: Log in
       sign_up: Sign up

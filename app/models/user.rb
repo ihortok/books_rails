@@ -33,6 +33,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :nullify
   has_many :book_reactions, dependent: :destroy
   has_many :lists, dependent: :destroy
+  has_many :reviews
 
   validates_presence_of :nickname
   validates_presence_of :locale

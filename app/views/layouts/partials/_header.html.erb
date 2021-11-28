@@ -49,6 +49,9 @@
             </li>
             <%= link_to t('users.index.title'), users_path, class: 'nav-link' %>
           <% end %>
+          <li class="nav-item">
+            <%= link_to t('header.nav.reviews'), reviews_path, class: 'nav-link' %>
+          </li>
           <hr>
           <% if user_signed_in? %>
             <li class="nav-item">

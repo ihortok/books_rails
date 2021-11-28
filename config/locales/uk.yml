@@ -9,10 +9,12 @@ uk:
     add_record:
       author: Додати автора
       book: Додати книгу
+      review: Додати рецензію
       list: Створити список
     edit_record:
       author: Редагувати автора
       book: Редагувати книгу
+      review: Редагувати рецензію
       list: Редагувати список
       user: Редагувати користувача
   users:
@@ -58,11 +60,15 @@ uk:
       title: Новий список
     edit:
       title: Редагувати список
+  reviews:
+    index:
+      empty: Наразі немає жодної рецензії.
   header:
     nav:
       title: Меню
       authors: Автори
       books: Книги
+      reviews: Рецензії
       lists: Мої списки
       log_in: Увійти
       sign_up: Зареєструватися

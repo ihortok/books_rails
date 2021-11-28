@@ -1,0 +1,19 @@
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <div class="card mb-4">
+      <div class="card-header">
+        <%= link_to review.title, book_review_path(review.book, review) %>
+        <small>(reviewer: <%= link_to review.user.nickname, review.user %>)</small>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= review.content %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p><%= t('.empty') %></p>
+<% end %>
+
+<% if @pagy.pages > 1 %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
+<% end %>

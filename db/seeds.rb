@@ -1,51 +1,39 @@
 # frozen_string_literal: true
 
-user = User.find_or_initialize_by(email: 'test@test.com')
+unless User.exists?(email: 'test@test.com')
+  FactoryBot.create(
+    :user,
+    :admin,
+    email: 'test@test.com',
+    password: '123456abc@',
+    nickname: 'test'
+  )
 
-unless user.persisted?
-  user.nickname = 'test'
-  user.password = '123456abc@'
-  user.password_confirmation = '123456abc@'
-  user.locale = 'uk'
-  user.save!
-
-  p 'user test@test.com - created'
+  p 'test user added'
 end
 
-books = [
-  {
-    title: 'Un capitaine de quinze ans',
-    author: 'Jules Verne'
-  },
-  {
-    title: 'White Fang',
-    author: 'Jack London'
-  },
-  {
-    title: 'Angels & Demons',
-    author: 'Dan Brown'
-  }
-]
+FactoryBot.create_list(:user, 2, :author)
 
-books.each do |b|
-  next if Author.exists?(name: b[:author]) && Book.exists?(title: b[:title])
+p '2 users added'
 
-  author = Author.find_or_initialize_by(name: b[:author])
+5.times { FactoryBot.create(:author, user: User.all.sample) }
 
-  unless author.persisted?
-    author.user = user
-    author.save!
+p '5 authors added'
 
-    p "author #{b[:author]} - created"
+10.times { FactoryBot.create(:book, user: User.all.sample, author: Author.all.sample) }
+
+p '10 books added'
+
+reviews_counter = 0
+
+Book.all.each do |book|
+  User.all.each do |user|
+    next if Review.exists?(user: user, book: book)
+
+    FactoryBot.create(:review, user: user, book: book)
+
+    reviews_counter += 1
   end
-
-  next if Book.exists? title: b[:title]
-
-  book = Book.create!(title: b[:title], author: author, user: user)
-
-  p "book #{book.title} - created"
-
-  BookReaction.create!(user: User.all.sample, book: book, like: [true, false].sample)
-
-  p "reaction on #{book.title} - created"
 end
+
+p "#{reviews_counter} reviews added"
