@@ -1,7 +1,7 @@
 lock '~> 3.16.0'
 
 set :application, 'books'
-set :repo_url, 'git@github.com:ihortok/books_rails.git'
+set :repo_url, 'git@github.com:AronnaxSpace/books.git'
 
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
