@@ -10,7 +10,10 @@ class BooksController < ApplicationController
     @pagy, @books = pagy(Book.all, items: 24)
   end
 
-  def show; end
+  def show 
+    @reviews = Review.where(book_id: @book.id).first(3)
+    @number_of_reviews = Review.where(book_id: @book.id).size
+  end
 
   def new
     @book = Book.new
