@@ -1,5 +1,16 @@
 # Books
 
+## Install dependencies
+```bash
+bundle install
+yarn install
+```
+
+## Setup the database
+```bash
+rake db:create && rake db:migrate && rake db:seeds
+```
+
 ## Generate data
 
 ### run rake task to generate users
