@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show 
-    @reviews = Review.where(book_id: params[:id])
+    @reviews = Review.where(book_id: @book.id)
   end
 
   def new

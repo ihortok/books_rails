@@ -69,10 +69,19 @@
       </div>
     <% end %>
   </div>
-  <% @reviews.each do |review| %>
-  <%= p review.content %>
-  <a href= "<%= book_reviews_path(@book.id) %>" >test</a>
-  <br>
-  <hr>
-  <%end%>
+</div>
+<div>
+  <h3> Reviews (<%= @reviews.size %>)</h3>
+  <% @reviews.first(3).each do |review| %>
+    <div class="card mb-4">
+      <div class="card-header">
+        <%= link_to review.title, book_review_path(review.book, review) %>
+        <small>(reviewer: <%= link_to review.user.nickname, review.user %>)</small>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= review.content %></p>
+      </div>
+    </div>
+  <% end %>
+  <a class='btn btn-primary' href= "<%= book_reviews_path(@book.id) %>" >See all reviews</a>
 </div>
