@@ -69,4 +69,10 @@
       </div>
     <% end %>
   </div>
+  <% @reviews.each do |review| %>
+  <%= p review.content %>
+  <a href= "<%= book_reviews_path(@book.id) %>" >test</a>
+  <br>
+  <hr>
+  <%end%>
 </div>
