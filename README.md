@@ -8,7 +8,7 @@ yarn install
 
 ## Setup the database
 ```bash
-rake db:create && rake db:migrate && rake db:seeds
+rails db:create && rails db:migrate && rails db:seeds
 ```
 
 ## Generate data
