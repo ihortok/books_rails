@@ -13,7 +13,6 @@ class BooksController < ApplicationController
   def show 
     @reviews = Review.where(book_id: @book.id).first(3)
     @number_of_reviews = Review.where(book_id: @book.id).size
-    @all_reviews = Review.all
   end
 
   def new
