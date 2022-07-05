@@ -4,16 +4,17 @@
 #
 # Table name: books
 #
-#  id             :bigint           not null, primary key
-#  description    :text
-#  goodreads_url  :string
-#  original_title :string
-#  published      :integer
-#  title          :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  author_id      :bigint
-#  user_id        :bigint
+#  id                  :bigint           not null, primary key
+#  description         :text
+#  goodreads_url       :string
+#  original_title      :string
+#  published           :integer
+#  title               :string
+#  year_of_publication :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  author_id           :bigint
+#  user_id             :bigint
 #
 # Indexes
 #
