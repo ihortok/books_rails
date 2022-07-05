@@ -18,7 +18,7 @@
       <p><i><%= @book.original_title %></i></p>
     <% end %>
     <% if @book.author %>
-      <p><%= link_to @book.author.name, author_path(@book.author) %></p>
+      <p><%= link_to @book.author.name, author_path(@book.author) %>, <i><%= @book.year_of_publication %></i> </p>
     <% end %>
     <% if @book.description.present? %>
       <p><%= @book.description %></p>
