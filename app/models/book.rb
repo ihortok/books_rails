@@ -8,7 +8,6 @@
 #  description         :text
 #  goodreads_url       :string
 #  original_title      :string
-#  published           :integer
 #  title               :string
 #  year_of_publication :integer
 #  created_at          :datetime         not null

@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2022_07_05_143950) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "published"
     t.integer "year_of_publication"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["user_id"], name: "index_books_on_user_id"
