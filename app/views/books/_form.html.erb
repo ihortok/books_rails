@@ -44,6 +44,11 @@
           <%= form.text_field :goodreads_url, class: 'form-control' %>
         </div>
 
+        <div class="field">
+          <%= form.label :Year_of_publication, class: 'form-label' %>
+          <%= form.select :model_year, (Time.zone.now.year - 200)..(Time.zone.now.year) %>
+        </div>
+        
         <div class="actions">
           <%= form.submit nil, class: 'btn btn-primary' %>
         </div>
