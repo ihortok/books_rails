@@ -46,7 +46,7 @@
 
         <div class="field">
           <%= form.label :Year_of_publication, class: 'form-label' %>
-          <%= form.select :model_year, (Time.zone.now.year - 200)..(Time.zone.now.year) %>
+          <%= form.select :published, (Time.zone.now.year - 200)..(Time.zone.now.year), { include_blank: true }, class: 'form-control' %>
         </div>
         
         <div class="actions">
