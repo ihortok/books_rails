@@ -40,6 +40,8 @@ uk:
     show:
       goodreads: Переглянути цю книгу на Goodreads
       add_to_list: Додати до списку
+      empty: Наразі немає жодної рецензії.
+      reviews: Рецензії
     new:
       title: Додати книгу
     edit:
@@ -86,7 +88,7 @@ uk:
         author_id: Автор
         goodreads_url: Посилання на Goodreads
         image: Зображення
-        year_of_publication:  Рік публікації
+        year_of_publication: Рік публікації
   helpers:
     submit:
       create: Додати

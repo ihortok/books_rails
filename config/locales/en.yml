@@ -40,6 +40,8 @@ en:
     show:
       goodreads: You can find this book at Goodreads
       add_to_list: Add to list
+      empty: There are currently no reviews.
+      reviews: Reviews
     new:
       title: New Book
     edit:
