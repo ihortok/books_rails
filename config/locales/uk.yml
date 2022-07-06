@@ -86,6 +86,7 @@ uk:
         author_id: Автор
         goodreads_url: Посилання на Goodreads
         image: Зображення
+        year_of_publication:  Рік публікації
   helpers:
     submit:
       create: Додати
